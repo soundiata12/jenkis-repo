@@ -1,3 +1,3 @@
-FROM nginx:1.0.0
+FROM nginx:latest
 COPY . /usr/share/nginx/html
 EXPOSE 80
