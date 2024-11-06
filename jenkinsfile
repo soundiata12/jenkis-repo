@@ -9,9 +9,9 @@ pipeline{
                     // This step should not normally be used in your script. Consult the inline help for details.
                       withDockerRegistry(credentialsId: 'key_jenkins') {
                        // some block
-                     sh "docker build -t myapache2:latest."
-                     sh " docker tag myapache2:latest soundiata87/myapache2:1.0.0"
-                     sh "docker push soundiata/myapache2:1.0.0"
+                     sh "docker build -t myapache2:latest ."
+                     sh " docker tag myapache2:1.0.1 soundiata87/myapache2:1.0.1"
+                     sh "docker push soundiata/myapache2:1.0.1"
              }
             }
         }  
