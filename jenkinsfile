@@ -3,9 +3,9 @@ pipeline{
         
     
     stages{
-        stage("A"){
+        stage("build my image"){
             steps{
-                echo "========executing A========"
+                sh "docker build -t myapache2:10.18.0 ."
             }
         }
 
