@@ -7,7 +7,7 @@ pipeline{
             steps{
                 script{
                     // This step should not normally be used in your script. Consult the inline help for details.
-                      withDockerRegistry(credentialsId: 'key_jenkins', url: 'soundiata87') {
+                      withDockerRegistry(credentialsId: 'key_jenkins') {
                        // some block
                      sh "docker build -t myapache2:10.18.0 ."
                      sh " docker tag myapache2 soundiata87/myapache2:10.18.0"
