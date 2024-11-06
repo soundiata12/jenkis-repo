@@ -1,6 +1,11 @@
 pipeline{
     agent any
-        
+        parameters{
+          string(name:'KOSSISTUDENT', defaultValue:'1.0.1')
+        }
+        environment{
+          KOSSI="Alway trying to be good"
+        }
     
     stages{
         stage("build my image"){
@@ -9,13 +14,19 @@ pipeline{
                     // This step should not normally be used in your script. Consult the inline help for details.
                       withDockerRegistry(credentialsId: 'key_jenkins') {
                        // some block
-                     sh "docker build -t myapache2:latest ."
-                     sh " docker tag myapache2:latest soundiata87/myapache2:1.0.1"
-                     sh "docker push soundiata87/myapache2:1.0.1"
+                     sh "docker build -t myapache2:${params.KOSSISTUDENT} ."
+                     sh "docker tag myapache2:${params.KOSSISTUDENT} soundiata87/myapache2:${KOSSISTUDENT}"
+                     sh "docker push soundiata87/myapache2:${KOSSISTUDENT}"
              }
             }
         }  
       }
+      stage('To declare env'){
+        steps{
+          echo "${KOSSI}"
+        }
+      }
+      
     }
 
 }
