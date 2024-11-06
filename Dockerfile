@@ -1,3 +1,3 @@
-FROM nginx:10.18.0
+FROM nginx:1.0.0
 COPY . /usr/share/nginx/html
 EXPOSE 80
